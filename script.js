@@ -72,3 +72,43 @@ async function loadTicker() {
 
 loadTicker();
 setInterval(loadTicker, 60000);
+
+/* === Marquee Ticker (BTC, ETH, SOL) === */
+(async function initMarqueeTicker(){
+  const API = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd&include_24hr_change=true";
+  const track = () => document.getElementById("ticker-track");
+
+  function itemHTML(label, price, chg){
+    const cls = (chg < 0) ? "down" : "up";
+    const pretty = Number(price).toLocaleString(undefined,{maximumFractionDigits:0});
+    const pct = (chg>=0?"+":"") + Number(chg).toFixed(2) + "%";
+    return `
+      <span class="ticker-item">
+        <span class="ticker-label">${label}</span>
+        <span class="ticker-price">$${pretty}</span>
+        <span class="ticker-change ${cls}">${pct}</span>
+      </span>
+    `;
+  }
+
+  async function render(){
+    try{
+      const r = await fetch(API, {cache:"no-store"});
+      const d = await r.json();
+      const items = [
+        itemHTML("BTC", d.bitcoin.usd,   d.bitcoin.usd_24h_change),
+        itemHTML("ETH", d.ethereum.usd, d.ethereum.usd_24h_change),
+        itemHTML("SOL", d.solana.usd,   d.solana.usd_24h_change),
+      ].join("");
+
+      // Duplikat 2x untuk loop mulus
+      const html = items + items + `<span class="ticker-updated">updated ${new Date().toLocaleTimeString()}</span>`;
+      if (track()) track().innerHTML = html;
+    }catch(e){
+      if (track()) track().textContent = "Error loading prices…";
+    }
+  }
+
+  await render();
+  setInterval(render, 60_000); // refresh tiap 1 menit
+})();
