@@ -1,142 +1,67 @@
-const $ = s => document.querySelector(s);
-$("#y").textContent = new Date().getFullYear();
-
-// simple CoinGecko fetch (no key)
-(async ()=>{
-  try{
-    const r = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd",{cache:"no-store"});
-    const j = await r.json();
-    const fmt = n => "$"+Number(n).toLocaleString();
-    $("#btc").textContent = fmt(j.bitcoin.usd);
-    $("#eth").textContent = fmt(j.ethereum.usd);
-    $("#sol").textContent = fmt(j.solana.usd);
-  }catch(e){ console.warn("coingecko err",e); }
+/* ========= LINKS ========= */
+(() => {
+  const L = (window.__LINKS__||{});
+  const byId = id => document.getElementById(id);
+  const idToUrl = { "lnk-x":L.x, "lnk-gh":L.gh, "lnk-in":L.in, "lnk-dc":L.dc };
+  Object.entries(idToUrl).forEach(([id,url])=>{
+    const el = byId(id); if(el && url){ el.href = url; el.target = "_blank"; }
+  });
+  const ad = byId('btn-airdrop'), cm = byId('btn-community');
+  if(ad && L.airdrop){ ad.href = L.airdrop; ad.target = "_blank"; }
+  if(cm && L.community){ cm.href = L.community; cm.target = "_blank"; }
+  const y=document.getElementById('year'); if(y) y.textContent = new Date().getFullYear();
 })();
 
-// === LIVE TICKER (CoinGecko) ===
-const $id = (x)=>document.getElementById(x);
-
-function fmtUSD(n){ return "$"+Number(n).toLocaleString(undefined,{maximumFractionDigits:0}); }
-function fmtPct(n){ return (n>0?"+":"")+n.toFixed(2)+"%"; }
-
-async function fetchPrices(){
-  const url = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd&include_24hr_change=true";
-  const r = await fetch(url, {cache:"no-store"});
-  if(!r.ok) throw new Error("coingecko "+r.status);
-  return r.json();
-}
-
-function buildTicker(data){
-  // data shape: { bitcoin:{usd, usd_24h_change}, ... }
-  const items = [
-    {sym:"BTC", d:data.bitcoin},
-    {sym:"ETH", d:data.ethereum},
-    {sym:"SOL", d:data.solana},
-  ].map(({sym,d})=>{
-    const ch = d.usd_24h_change || 0;
-    const cls = ch>=0 ? "pos" : "neg";
-    return `
-      <span class="ti">
-        <span>${sym}</span>
-        <b>${fmtUSD(d.usd)}</b>
-        <span class="chg ${cls}">${fmtPct(ch)}</span>
-      </span>`;
-  }).join("");
-
-  // gandakan konten agar animasi 100%->-50% mulus
-  const track = items + items;
-  $id("ticker-track").innerHTML = track;
-}
-
-async function refreshTicker(){
+/* ========= SIMPLE TICKER (CoinGecko public API) ========= */
+async function fetchSnapshot(){
   try{
-    const j = await fetchPrices();
-    buildTicker(j);
+    const ids = 'bitcoin,ethereum,solana';
+    const url='https://api.coingecko.com/api/v3/simple/price?ids='+ids+'&vs_currencies=usd&include_24hr_change=true';
+    const r = await fetch(url,{cache:'no-store'});
+    const j = await r.json();
+    const fmt=(n)=>'$'+n.toLocaleString(undefined,{maximumFractionDigits:0});
+    const pct=(x)=>((x>0?'+':'')+x.toFixed(2)+'%');
+    const row = [
+      `BTC: ${fmt(j.bitcoin.usd)}  24h: ${pct(j.bitcoin.usd_24h_change)}`,
+      `ETH: ${fmt(j.ethereum.usd)}  24h: ${pct(j.ethereum.usd_24h_change)}`,
+      `SOL: ${fmt(j.solana.usd)}  24h: ${pct(j.solana.usd_24h_change)}`
+    ].join('   •   ');
+    const t = document.getElementById('ticker');
+    if(t) t.textContent = row + '   •   updated ' + new Date().toLocaleTimeString();
   }catch(e){
-    console.warn("ticker error", e);
+    const t = document.getElementById('ticker');
+    if(t) t.textContent = 'Snapshot unavailable (rate-limit / network).';
   }
 }
+fetchSnapshot();
+setInterval(fetchSnapshot, 90_000);
 
-// load awal & interval
-if($id("ticker-track")){
-  refreshTicker();
-  setInterval(refreshTicker, 60_000); // update tiap 60 detik
-}
+/* ========= CONSTELLATION BACKGROUND ========= */
+(function runBg(){
+  const c = document.getElementById('bg'); const ctx = c.getContext('2d');
+  let W,H; const DPR=window.devicePixelRatio||1;
+  function resize(){ W=window.innerWidth; H=window.innerHeight; c.width=W*DPR; c.height=H*DPR; c.style.width=W+'px'; c.style.height=H+'px'; ctx.setTransform(DPR,0,0,DPR,0,0); }
+  resize(); window.addEventListener('resize', resize);
 
-/* HERO NODE NETWORK */
-(function(){
-  const cv = document.getElementById('hero-canvas');
-  if(!cv) return;
-
-  const ctx = cv.getContext('2d');
-  let w=0,h=0, dpr = Math.max(1, window.devicePixelRatio||1);
-  const N = 80;          // jumlah partikel
-  const MAX_DIST = 130;  // jarak maksimal tarik garis
-  const SPEED = 0.25;    // kecepatan dasar
-
-  const nodes = [];
-  function resize(){
-    w = cv.clientWidth; h = cv.clientHeight;
-    cv.width = Math.floor(w * dpr);
-    cv.height= Math.floor(h * dpr);
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-  }
-  window.addEventListener('resize', resize, {passive:true});
-  resize();
-
-  // warna ala neon
-  const C1 = 'rgba(0,255,255,0.85)';   // cyan
-  const C2 = 'rgba(255,77,219,0.85)';  // magenta
-  const C3 = 'rgba(255,210,77,0.85)';  // gold
-
-  function rand(a,b){ return a + Math.random()*(b-a); }
-
+  const N = 120, P=[];
   for(let i=0;i<N;i++){
-    nodes.push({
-      x: rand(0,w), y: rand(0,h),
-      vx: rand(-SPEED,SPEED), vy: rand(-SPEED,SPEED),
-      r: rand(1.1,2.2),
-      c: Math.random()<.45 ? C1 : (Math.random()<.5 ? C2 : C3)
-    });
+    P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-0.5)*.3,vy:(Math.random()-0.5)*.3});
   }
-
   function step(){
-    ctx.clearRect(0,0,w,h);
-
-    // garis antar node
-    for(let i=0;i<N;i++){
-      const a = nodes[i];
-      for(let j=i+1;j<N;j++){
-        const b = nodes[j];
-        const dx=a.x-b.x, dy=a.y-b.y, d = Math.hypot(dx,dy);
-        if(d<MAX_DIST){
-          const t = 1 - d/MAX_DIST;
-          ctx.globalAlpha = t*0.6;
-          // warna campuran ringan
-          ctx.strokeStyle = 'rgba(180,210,255,'+(t*0.7)+')';
-          ctx.lineWidth = t*1.4;
-          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
-        }
-      }
+    ctx.clearRect(0,0,W,H);
+    for(const p of P){
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>W) p.vx*=-1;
+      if(p.y<0||p.y>H) p.vy*=-1;
+      ctx.fillStyle = 'rgba(94,243,255,.85)';
+      ctx.beginPath(); ctx.arc(p.x,p.y,1.2,0,Math.PI*2); ctx.fill();
     }
-    ctx.globalAlpha = 1;
-
-    // node (glow)
-    for(const n of nodes){
-      ctx.shadowColor = n.c;
-      ctx.shadowBlur = 8;
-      ctx.fillStyle = n.c;
-      ctx.beginPath(); ctx.arc(n.x,n.y,n.r,0,Math.PI*2); ctx.fill();
-      ctx.shadowBlur = 0;
-    }
-
-    // update posisi
-    for(const n of nodes){
-      n.x += n.vx; n.y += n.vy;
-      if(n.x<0 || n.x>w) n.vx*=-1;
-      if(n.y<0 || n.y>h) n.vy*=-1;
+    ctx.strokeStyle='rgba(94,243,255,.08)';
+    for(let i=0;i<N;i++) for(let j=i+1;j<N;j++){
+      const a=P[i],b=P[j]; const dx=a.x-b.x, dy=a.y-b.y; const d=dx*dx+dy*dy;
+      if(d<120*120){ ctx.globalAlpha = 1 - d/(120*120); ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); ctx.globalAlpha=1; }
     }
     requestAnimationFrame(step);
   }
-  requestAnimationFrame(step);
+  step();
 })();
