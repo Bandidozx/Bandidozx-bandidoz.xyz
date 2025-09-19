@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Bandidoz — Web3 Playground</title>
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://api.coingecko.com">
+  <link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+  <!-- Node Network Hero -->
+  <section id="node-hero">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-inner">
+      <h1>Bandidoz Playground</h1>
+      <p>Nodes • Testnets • On-chain Automations</p>
+    </div>
+  </section>
+  <!-- Hero Banner -->
+  <section id="hero-banner">
+    <div class="hero-overlay"></div>
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-text">
+        <a class="chip" href="https://www.linkedin.com/in/bandidoz-x-904720240/" target="_blank">LinkedIn</a>
+        <a class="chip" href="https://discordapp.com/users/@maxwellxyz" target="_blank">Discord</a>
+      </div>
+    </div>
+
+    <div class="hero__right">
+      <div class="avatar">
+        <img src="assets/profile.png?v=3" alt="profile">
+      </div>
+    </div>
+
+    <!-- optional background image/video lives under .hero::before in CSS -->
+  </header>
+  <!-- Live Market Ticker -->
+  <div id="live-ticker" class="ticker">
+    <div class="ticker__track" id="ticker-track"></div>
+  </div>
+
+  <!-- Dashboard Grid -->
+  <main class="grid">
+    <section class="card about">
+      <h3>About Me</h3>
+      <p>Hi, I’m <b>Bandidoz</b>. I build tools, automate on-chain flows, and experiment with testnets.</p>
+    </section>
+
+    <section class="card market">
+      <div class="card-head">
+        <h3>Market Snapshot</h3>
+        <span class="muted">Live</span>
+      </div>
+      <div class="tickers">
+        <div class="ticker"><span>BTC</span><b id="btc">–</b></div>
+        <div class="ticker"><span>ETH</span><b id="eth">–</b></div>
+        <div class="ticker"><span>SOL</span><b id="sol">–</b></div>
+      </div>
+      <small class="muted">Powered by CoinGecko public API</small>
+    </section>
+
+    <section class="card portfolio">
+      <h3>Portfolio</h3>
+      <ul class="list">
+        <li>Open-source bots & scripts (swap, LP, deploy)</li>
+        <li>Dashboard experiments</li>
+        <li>Landing pages</li>
+      </ul>
+    </section>
+
+    <section class="card token">
+      <h3>Token Info</h3>
+      <p>Coming soon — contract, supply, and docs here.</p>
+    </section>
+
+    <section class="card airdrop">
+      <h3>Airdrop</h3>
+      <p>Kurasinya airdrop & quests yang lagi dipantau.</p>
+      <a class="btn" href="/airdrop.html" target="_self">→ Buka Airdrop Board</a>
+    </section>
+
+    <section class="card community">
+      <h3>Community</h3>
+      <p>Daftar komunitas crypto rekomendasi.</p>
+      <a class="btn" href="/community.html" target="_self">→ Buka Community List</a>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/bandidoz-x-904720240/" target="_blank" aria-label="LinkedIn">in</a>
+      <a href="https://x.com/maxwelxyz" target="_blank" aria-label="X">x</a>
+      <a href="https://github.com/Bandidozx" target="_blank" aria-label="GitHub">GH</a>
+      <a href="https://discordapp.com/users/@maxwellxyz" target="_blank" aria-label="Discord">DC</a>
+    </div>
+    <small>© <span id="y"></span> Bandidoz</small>
+  </footer>
+
+  <script src="script.js?v=3"></script>
+</body>
+</html>
