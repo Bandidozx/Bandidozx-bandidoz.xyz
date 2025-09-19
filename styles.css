@@ -1,1 +1,4 @@
 body{font-family:sans-serif;background:#0a0f1a;color:#eee;text-align:center;padding:40px}
+.social-icons { display:flex; gap:12px; align-items:center; justify-content:center; margin-top:8px; }
+.social-icons img { opacity:0.9; transition:transform .15s ease, opacity .15s ease; }
+.social-icons img:hover { transform:translateY(-1px) scale(1.05); opacity:1; }
