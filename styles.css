@@ -101,3 +101,53 @@ h1{
 .ticker-updated{
   opacity:.55; margin-left:14px; font-size:.85rem;
 }
+
+/* === MARQUEE TICKER === */
+.ticker-bar{
+  margin: 10px 0 18px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.06);
+  background: linear-gradient(180deg, rgba(10,18,25,.85), rgba(7,14,20,.85));
+  box-shadow: 0 10px 30px rgba(0,0,0,.25) inset, 0 4px 12px rgba(0,0,0,.25);
+}
+.ticker-track{
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  will-change: transform;
+  animation: ticker-scroll 38s linear infinite;
+  padding: 10px 0;
+}
+@keyframes ticker-scroll{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.ticker-item{
+  display: inline-flex;
+  gap: 8px;
+  align-items: baseline;
+  padding: 0 18px;
+  margin-right: 6px;
+  border-right: 1px solid rgba(255,255,255,.06);
+  opacity: .95;
+}
+.ticker-item:last-child{ border-right: none; }
+.ticker-label{
+  font-weight: 700;
+  letter-spacing: .3px;
+  color: #CFE9FF;
+}
+.ticker-price{
+  font-variant-numeric: tabular-nums;
+  color: #E9F5FF;
+}
+.ticker-change{
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+.ticker-change.up{   color: #37d67a; }
+.ticker-change.down{ color: #ff5c5c; }
+.ticker-updated{
+  opacity:.55; margin-left:14px; font-size:.85rem;
+}
