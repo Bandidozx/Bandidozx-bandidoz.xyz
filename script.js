@@ -38,3 +38,37 @@ fetchSnapshot(); setInterval(fetchSnapshot, 90000);
     requestAnimationFrame(step);
   } step();
 })();
+
+/* === Dynamic Market Ticker === */
+async function loadTicker() {
+  try {
+    const res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd&include_24hr_change=true");
+    const data = await res.json();
+
+    const btc = data.bitcoin.usd;
+    const btcChg = data.bitcoin.usd_24h_change.toFixed(2);
+
+    const eth = data.ethereum.usd;
+    const ethChg = data.ethereum.usd_24h_change.toFixed(2);
+
+    const sol = data.solana.usd;
+    const solChg = data.solana.usd_24h_change.toFixed(2);
+
+    function spanPrice(label, price, chg) {
+      const color = chg < 0 ? "red" : "limegreen";
+      return `${label}: $${price.toLocaleString()} <span style="color:${color}">${chg}%</span>`;
+    }
+
+    document.getElementById("ticker").innerHTML = `
+      ${spanPrice("BTC", btc, btcChg)} &nbsp;&nbsp;
+      ${spanPrice("ETH", eth, ethChg)} &nbsp;&nbsp;
+      ${spanPrice("SOL", sol, solChg)} 
+      <small style="opacity:.6">updated ${new Date().toLocaleTimeString()}</small>
+    `;
+  } catch (e) {
+    document.getElementById("ticker").textContent = "Error loading prices ⚠️";
+  }
+}
+
+loadTicker();
+setInterval(loadTicker, 60000);
