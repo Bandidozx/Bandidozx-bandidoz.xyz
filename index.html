@@ -1,85 +1,95 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bandidoz — Web3 Playground</title>
-<link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Bandidoz — Web3 Playground</title>
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://api.coingecko.com">
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
-<div class="wrap">
+  <!-- Top Hero -->
   <header class="hero">
     <div class="hero__left">
       <div class="badge">BANDIDOZ</div>
-      <h1>Web3 Playground</h1>
-      <p class="muted">Builder • Airdrop hunter • Crypto enjoyer</p>
+      <h1 class="title">Web3 Playground</h1>
+      <p class="subtitle">Builder • Airdrop hunter • Crypto enjoyer</p>
+
       <div class="social">
-        <a class="btn" href="https://x.com/maxwelxyz" target="_blank">X (Twitter)</a>
-        <a class="btn" href="https://github.com/Bandidozx" target="_blank">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/bandidoz-x-904720240/" target="_blank">LinkedIn</a>
-        <a class="btn" href="https://discord.com/users/maxwellxyz" target="_blank">Discord</a>
+        <a class="chip" href="https://x.com/maxwelxyz" target="_blank">X (Twitter)</a>
+        <a class="chip" href="https://github.com/Bandidozx" target="_blank">GitHub</a>
+        <a class="chip" href="https://www.linkedin.com/in/bandidoz-x-904720240/" target="_blank">LinkedIn</a>
+        <a class="chip" href="https://discordapp.com/users/@maxwellxyz" target="_blank">Discord</a>
       </div>
     </div>
+
     <div class="hero__right">
-      <img class="avatar" src="assets/profile.png?v=2" alt="profile">
+      <div class="avatar">
+        <img src="assets/profile.png?v=3" alt="profile">
+      </div>
     </div>
-    <div class="hero__bg"></div>
+
+    <!-- optional background image/video lives under .hero::before in CSS -->
   </header>
 
-  <section class="grid">
-    <article class="card about">
+  <!-- Dashboard Grid -->
+  <main class="grid">
+    <section class="card about">
       <h3>About Me</h3>
       <p>Hi, I’m <b>Bandidoz</b>. I build tools, automate on-chain flows, and experiment with testnets.</p>
-    </article>
+    </section>
 
-    <article class="card info">
-      <h3>Market Snapshot</h3>
-      <div id="tickers" class="ticker">
-        <div>BTC: <span id="btc">-</span></div>
-        <div>ETH: <span id="eth">-</span></div>
-        <div>SOL: <span id="sol">-</span></div>
+    <section class="card market">
+      <div class="card-head">
+        <h3>Market Snapshot</h3>
+        <span class="muted">Live</span>
       </div>
-      <small class="muted">Powered by CoinGecko public API.</small>
-    </article>
+      <div class="tickers">
+        <div class="ticker"><span>BTC</span><b id="btc">–</b></div>
+        <div class="ticker"><span>ETH</span><b id="eth">–</b></div>
+        <div class="ticker"><span>SOL</span><b id="sol">–</b></div>
+      </div>
+      <small class="muted">Powered by CoinGecko public API</small>
+    </section>
 
-    <article class="card portfolio">
+    <section class="card portfolio">
       <h3>Portfolio</h3>
-      <ul>
+      <ul class="list">
         <li>Open-source bots & scripts (swap, LP, deploy)</li>
         <li>Dashboard experiments</li>
         <li>Landing pages</li>
       </ul>
-    </article>
+    </section>
 
-    <article class="card token">
+    <section class="card token">
       <h3>Token Info</h3>
       <p>Coming soon — contract, supply, and docs here.</p>
-    </article>
+    </section>
 
-    <article class="card airdrop">
+    <section class="card airdrop">
       <h3>Airdrop</h3>
-      <p>Kurasi airdrop & quests yang lagi dipantau.</p>
-      <p><a class="btn" href="airdrop.html">→ Buka Airdrop Board</a></p>
-    </article>
+      <p>Kurasinya airdrop & quests yang lagi dipantau.</p>
+      <a class="btn" href="/airdrop.html" target="_self">→ Buka Airdrop Board</a>
+    </section>
 
-    <article class="card coming">
+    <section class="card community">
       <h3>Community</h3>
       <p>Daftar komunitas crypto rekomendasi.</p>
-      <p><a class="btn" href="community.html">→ Buka Community List</a></p>
-    </article>
-  </section>
+      <a class="btn" href="/community.html" target="_self">→ Buka Community List</a>
+    </section>
+  </main>
 
-  <footer>
+  <footer class="foot">
     <div class="social-icons">
-      <a href="https://www.linkedin.com/in/bandidoz-x-904720240/" target="_blank" class="linkedin">in</a>
-      <a href="https://x.com/maxwelxyz" target="_blank" class="twitter">X</a>
-      <a href="https://github.com/Bandidozx" target="_blank" class="github">GH</a>
-      <a href="https://discord.com/users/maxwellxyz" target="_blank" class="discord">DC</a>
+      <a href="https://www.linkedin.com/in/bandidoz-x-904720240/" target="_blank" aria-label="LinkedIn">in</a>
+      <a href="https://x.com/maxwelxyz" target="_blank" aria-label="X">x</a>
+      <a href="https://github.com/Bandidozx" target="_blank" aria-label="GitHub">GH</a>
+      <a href="https://discordapp.com/users/@maxwellxyz" target="_blank" aria-label="Discord">DC</a>
     </div>
     <small>© <span id="y"></span> Bandidoz</small>
   </footer>
-</div>
-<script src="script.js"></script>
+
+  <script src="script.js?v=3"></script>
 </body>
 </html>
