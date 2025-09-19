@@ -1,4 +1,3 @@
-cat > add-social-icons.sh <<'EOF'
 #!/bin/bash
 set -e
 mkdir -p assets/icons
@@ -43,6 +42,3 @@ if ! grep -q 'linkedin.svg' index.html; then
 fi
 
 echo "✅ Social icons (LinkedIn, Twitter, GitHub, Discord) added!"
-EOF
-
-chmod +x add-social-icons.sh
