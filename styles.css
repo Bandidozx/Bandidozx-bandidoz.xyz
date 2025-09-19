@@ -1,68 +1,30 @@
 :root{
-  --bg:#0c1520;
-  --panel:#0f1b2a;
-  --panel-2:#102232;
-  --txt:#dfe9f6;
-  --muted:#96a7bf;
-  --brand:#5ef3ff;
-  --brand2:#4de1b7;
-  --chip:#192a3d;
-  --chip-bd:#2a3f57;
-  --glow: 0 0 30px rgba(94,243,255,.35), 0 0 60px rgba(77,225,183,.2);
+  --bg:#0c1520;--panel:#0f1b2a;--panel-2:#102232;--txt:#dfe9f6;--muted:#96a7bf;
+  --brand:#5ef3ff;--brand2:#4de1b7;--chip:#192a3d;--chip-bd:#2a3f57;
+  --glow:0 0 30px rgba(94,243,255,.35),0 0 60px rgba(77,225,183,.2)
 }
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;background:var(--bg);color:var(--txt);font:500 16px/1.6 Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial}
 a{color:inherit;text-decoration:none}
-
 #bg{position:fixed;inset:0;z-index:-1}
-
-.hero{
-  position:relative;
-  padding:64px 20px 0;
-}
-.hero-inner{
-  display:flex;gap:28px;align-items:center;justify-content:space-between;
-  max-width:1100px;margin:0 auto;flex-wrap:wrap;
-  background:linear-gradient(180deg,rgba(16,34,50,.6),rgba(16,34,50,.2));
-  border:1px solid rgba(94,243,255,.1);border-radius:18px;padding:32px 28px;box-shadow: var(--glow);
-}
-.badge{
-  display:inline-block;padding:6px 10px;border:1px solid var(--chip-bd);
-  border-radius:999px;background:var(--chip);color:var(--brand2);font-weight:700;letter-spacing:.08em
-}
+.hero{position:relative;padding:64px 20px 0}
+.hero-inner{display:flex;gap:28px;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;flex-wrap:wrap;background:linear-gradient(180deg,rgba(16,34,50,.6),rgba(16,34,50,.2));border:1px solid rgba(94,243,255,.1);border-radius:18px;padding:32px 28px;box-shadow:var(--glow)}
+.badge{display:inline-block;padding:6px 10px;border:1px solid var(--chip-bd);border-radius:999px;background:var(--chip);color:var(--brand2);font-weight:700;letter-spacing:.08em}
 h1{font-size:40px;margin:10px 0 6px;text-shadow:0 0 18px rgba(94,243,255,.25)}
 .subtitle{color:var(--muted);margin:0 0 12px}
 .social-row{display:flex;gap:10px;flex-wrap:wrap}
-.chip{
-  padding:8px 12px;border-radius:999px;border:1px solid var(--chip-bd);background:var(--chip);
-  color:var(--txt);opacity:.9;transition:.2s
-}
+.chip{padding:8px 12px;border-radius:999px;border:1px solid var(--chip-bd);background:var(--chip);color:var(--txt);opacity:.9;transition:.2s}
 .chip:hover{transform:translateY(-1px);box-shadow:var(--glow)}
 .avatar-card{position:relative;width:140px;height:140px;border-radius:22px;overflow:hidden}
 .avatar-card .glow{position:absolute;inset:-30px;background:radial-gradient(120px 120px at 70% 30%,rgba(94,243,255,.35),transparent 60%);filter:blur(8px)}
 .avatar-card img{position:relative;width:100%;height:100%;object-fit:cover;border-radius:16px;border:1px solid rgba(255,255,255,.08)}
-
-.ticker-wrap{
-  margin:18px auto 0;max-width:1100px;border-radius:12px;overflow:hidden;
-  border:1px solid rgba(94,243,255,.12);background:linear-gradient(180deg,var(--panel),var(--panel-2));
-}
+.ticker-wrap{margin:18px auto 0;max-width:1100px;border-radius:12px;overflow:hidden;border:1px solid rgba(94,243,255,.12);background:linear-gradient(180deg,var(--panel),var(--panel-2))}
 .ticker{white-space:nowrap;display:inline-block;padding:10px 0;animation:marq 28s linear infinite}
 @keyframes marq{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
-
 .grid{max-width:1100px;margin:28px auto;padding:0 20px;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.card{
-  background:linear-gradient(180deg,var(--panel),var(--panel-2));
-  border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:18px;min-height:140px;
-  transition:.2s;box-shadow:0 10px 30px rgba(0,0,0,.15)
-}
+.card{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:18px;min-height:140px;transition:.2s;box-shadow:0 10px 30px rgba(0,0,0,.15)}
 .card:hover{transform:translateY(-2px);box-shadow:0 16px 42px rgba(0,0,0,.22)}
-.list{margin:8px 0 0 18px;padding:0}
-.list li{margin:.25rem 0}
-.btn{
-  display:inline-block;margin-top:10px;padding:10px 14px;border-radius:10px;
-  background:linear-gradient(90deg,var(--brand),var(--brand2));
-  color:#0b1420;font-weight:800
-}
+.list{margin:8px 0 0 18px;padding:0}.list li{margin:.25rem 0}
+.btn{display:inline-block;margin-top:10px;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--brand),var(--brand2));color:#0b1420;font-weight:800}
 .footer{max-width:1100px;margin:30px auto 40px;padding:0 20px;color:var(--muted)}
-/* guard: kalau ada .hero.secondary tersisa dari cache, sembunyikan */
 .hero.secondary{display:none!important}

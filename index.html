@@ -8,77 +8,56 @@
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-  <!-- Animated starfield/constellation -->
   <canvas id="bg"></canvas>
 
-  <!-- HERO (SATU SAJA) -->
   <header class="hero">
     <div class="hero-inner">
       <div class="title-block">
         <span class="badge">BANDIDOZ</span>
         <h1>Web3 Playground</h1>
         <p class="subtitle">Nodes • Testnets • On-chain Automations</p>
-
         <div class="social-row">
-          <a class="chip" id="lnk-x" aria-label="X (Twitter)">X (Twitter)</a>
-          <a class="chip" id="lnk-gh" aria-label="GitHub">GitHub</a>
-          <a class="chip" id="lnk-in" aria-label="LinkedIn">LinkedIn</a>
-          <a class="chip" id="lnk-dc" aria-label="Discord">Discord</a>
+          <a class="chip" id="lnk-x">X (Twitter)</a>
+          <a class="chip" id="lnk-gh">GitHub</a>
+          <a class="chip" id="lnk-in">LinkedIn</a>
+          <a class="chip" id="lnk-dc">Discord</a>
         </div>
       </div>
-
       <div class="avatar-card">
         <div class="glow"></div>
         <img src="assets/profile.jpg" alt="profile" onerror="this.src='assets/profile.png'"/>
       </div>
     </div>
-
-    <!-- LIVE TICKER -->
-    <div class="ticker-wrap">
-      <div class="ticker" id="ticker">Loading market snapshot…</div>
-    </div>
+    <div class="ticker-wrap"><div class="ticker" id="ticker">Loading market snapshot…</div></div>
   </header>
 
-  <!-- GRID CARDS -->
   <main class="grid">
-    <section class="card">
-      <h3>About Me</h3>
+    <section class="card"><h3>About Me</h3>
       <p>Hi, I’m <b>Bandidoz</b>. I build tools, automate on-chain flows, and experiment with testnets.</p>
     </section>
-
-    <section class="card">
-      <h3>Portfolio</h3>
+    <section class="card"><h3>Portfolio</h3>
       <ul class="list">
         <li>Open-source bots & scripts (swap, LP, deploy)</li>
         <li>Dashboard experiments</li>
         <li>Landing pages</li>
       </ul>
     </section>
-
-    <section class="card">
-      <h3>Token Info</h3>
+    <section class="card"><h3>Token Info</h3>
       <p>Coming soon — contract, supply, and docs here.</p>
     </section>
-
-    <section class="card">
-      <h3>Airdrop</h3>
+    <section class="card"><h3>Airdrop</h3>
       <p>Kurasi airdrop & quests terkini dari sumber tepercaya.</p>
       <a class="btn" id="btn-airdrop">→ Buka Airdrop Board</a>
     </section>
-
-    <section class="card">
-      <h3>Community</h3>
+    <section class="card"><h3>Community</h3>
       <p>Daftar komunitas crypto rekomendasi untuk join.</p>
       <a class="btn" id="btn-community">→ Buka Community List</a>
     </section>
   </main>
 
-  <footer class="footer">
-    <div>© <span id="year"></span> Bandidoz</div>
-  </footer>
+  <footer class="footer">© <span id="year"></span> Bandidoz</footer>
 
   <script>
-    // Inject link targets (edit di rebuild script)
     window.__LINKS__ = {
       x: "$TWITTER_URL",
       gh: "$GITHUB_URL",
