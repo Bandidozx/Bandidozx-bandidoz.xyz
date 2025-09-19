@@ -22,7 +22,7 @@ Your portal for Web3 vibes, experiments, and personal projects.
 ## 🔗 Connect with Me
 - 🐙 GitHub: [Bandidozx](https://github.com/Bandidozx)  
 - 🐦 Twitter (X): [@maxwelxyz](https://x.com/maxwelxyz)  
-- 💼 LinkedIn: [Kenzi Mutakin](https://www.linkedin.com/in/kenzi-mutakin-904720240/)  
+- 💼 LinkedIn: [Bandidoz-X](https://www.linkedin.com/in/bandidoz-x-904720240/)  
 - 💬 Discord: **maxwellxyz**
 
 ---
