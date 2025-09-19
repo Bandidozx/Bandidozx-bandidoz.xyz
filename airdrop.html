@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Airdrop • Bandidoz</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="sub-hero">
+    <h1>#WAGMI</h1>
+    <p class="muted">Free Airdrop • Paid Airdrop • Testnet • Depin • Social</p>
+    <nav class="pill-nav">
+      <a href="airdrop.html" class="active">Free Airdrop</a>
+      <a href="airdrop.html?tab=paid">Paid Airdrop</a>
+      <a href="airdrop.html?tab=ended">Ended</a>
+      <a href="index.html">← Back</a>
+    </nav>
+    <div class="toolbar">
+      <input id="q" type="search" placeholder="Search airdrop">
+      <select id="filter">
+        <option value="ALL">All</option>
+        <option value="SOCIAL">SOCIAL</option>
+        <option value="TESTNET">TESTNET</option>
+        <option value="DEPIN">DEPIN</option>
+      </select>
+    </div>
+  </header>
+
+  <section class="list-card">
+    <div class="list-head">
+      <div>AIRDROP</div>
+      <div>TASK</div>
+      <div class="right">LINK</div>
+    </div>
+    <div id="rows"></div>
+    <div class="pager">
+      <button id="prev">‹</button>
+      <span id="page">1</span>
+      <button id="next">›</button>
+    </div>
+  </section>
+</div>
+<script src="scripts/airdrop.js"></script>
+</body>
+</html>
