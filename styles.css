@@ -28,3 +28,25 @@ h1{font-size:40px;margin:10px 0 6px;text-shadow:0 0 18px rgba(94,243,255,.25)}
 .btn{display:inline-block;margin-top:10px;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--brand),var(--brand2));color:#0b1420;font-weight:800}
 .footer{max-width:1100px;margin:30px auto 40px;padding:0 20px;color:var(--muted)}
 .hero.secondary{display:none!important}
+
+/* === Mobile BG visibility & neon accents (override) === */
+html{background:var(--bg)}                 /* fallback gelap kalau canvas gagal */
+body{background:transparent}               /* biar canvas kelihatan */
+#bg{z-index:0}                             /* dulu -1, bikin ketutup di HP */
+.hero,.grid,.footer{position:relative;z-index:1}
+
+/* Judul neon gradien */
+h1{
+  background:linear-gradient(90deg,#5ef3ff,#4de1b7);
+  -webkit-background-clip:text;background-clip:text;
+  color:transparent;
+  text-shadow:0 0 18px rgba(94,243,255,.25);
+}
+
+/* Ticker biar kontras & rapi di HP */
+.ticker-wrap{border:1px solid rgba(94,243,255,.18)}
+.ticker{padding:12px 0;font-weight:600}
+
+/* Chips sosial sedikit lebih kontras */
+.chip{color:#e8f4ff;border-color:#2e516d}
+.chip:hover{box-shadow:0 0 24px rgba(94,243,255,.35),0 0 40px rgba(77,225,183,.22)}
