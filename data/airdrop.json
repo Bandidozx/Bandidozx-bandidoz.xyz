@@ -1,12 +1,12 @@
 [
-  {"name":"Wallchain","tag":"SOCIAL","url":"https://example.com/wallchain","paid":false,"ended":false},
-  {"name":"Nebula","tag":"DEPIN","url":"https://example.com/nebula","paid":false,"ended":false},
-  {"name":"Pharos","tag":"TESTNET","url":"https://example.com/pharos","paid":false,"ended":false},
-  {"name":"Decent","tag":"SOCIAL","url":"https://example.com/decent","paid":false,"ended":false},
-  {"name":"ByteNova","tag":"SOCIAL","url":"https://example.com/byte","paid":false,"ended":false},
-  {"name":"Linera","tag":"TESTNET","url":"https://example.com/linera","paid":false,"ended":false},
-  {"name":"Rise","tag":"TESTNET","url":"https://example.com/rise","paid":false,"ended":false},
-  {"name":"Cryplex","tag":"DEPIN","url":"https://example.com/cryplex","paid":false,"ended":false},
-  {"name":"Recall","tag":"TESTNET","url":"https://example.com/recall","paid":false,"ended":false},
-  {"name":"Dango","tag":"TESTNET","url":"https://example.com/dango","paid":false,"ended":false}
+  {"name":"Wallchain","tag":"SOCIAL","url":"https://airdrop.nekowawolf.xyz/","paid":false,"ended":false},
+  {"name":"Nebula","tag":"DEPIN","url":"https://airdrop.nekowawolf.xyz/","paid":false,"ended":false},
+  {"name":"Pharos","tag":"TESTNET","url":"https://airdrop.nekowawolf.xyz/","paid":false,"ended":false},
+  {"name":"Decent","tag":"SOCIAL","url":"https://airdrop.nekowawolf.xyz/","paid":false,"ended":false},
+  {"name":"ByteNova","tag":"SOCIAL","url":"https://airdrop.nekowawolf.xyz/","paid":false,"ended":false},
+  {"name":"Linera","tag":"TESTNET","url":"https://airdrop.nekowawolf.xyz/","paid":false,"ended":false},
+  {"name":"Rise","tag":"TESTNET","url":"https://airdrop.nekowawolf.xyz/","paid":false,"ended":false},
+  {"name":"Cryplex","tag":"DEPIN","url":"https://airdrop.nekowawolf.xyz/","paid":false,"ended":false},
+  {"name":"Recall","tag":"TESTNET","url":"https://airdrop.nekowawolf.xyz/","paid":false,"ended":false},
+  {"name":"Dango","tag":"TESTNET","url":"https://airdrop.nekowawolf.xyz/","paid":false,"ended":false}
 ]

@@ -1,14 +1,10 @@
 [
-  {"name":"KKPC","platform":"Facebook","type":"Social","url":"https://example.com/kkpc","logo":"https://dummyimage.com/64x64/222/fff&text=K"},
-  {"name":"Exsaverse","platform":"Discord","type":"NFT","url":"https://example.com/exsa","logo":"https://dummyimage.com/64x64/222/fff&text=E"},
-  {"name":"Bang Pateng","platform":"Telegram","type":"Airdrop","url":"https://example.com/bp","logo":"https://dummyimage.com/64x64/222/fff&text=B"},
-  {"name":"Cryptosiast","platform":"Telegram","type":"Airdrop","url":"https://example.com/cry","logo":"https://dummyimage.com/64x64/222/fff&text=C"},
-  {"name":"USDTseeker","platform":"Discord","type":"Trading","url":"https://example.com/usdt","logo":"https://dummyimage.com/64x64/222/fff&text=U"},
-  {"name":"SolJobs","platform":"Discord","type":"Web3 Jobs","url":"https://example.com/soljobs","logo":"https://dummyimage.com/64x64/222/fff&text=J"},
-  {"name":"MemeWaves","platform":"Telegram","type":"Meme Coin","url":"https://example.com/meme","logo":"https://dummyimage.com/64x64/222/fff&text=M"},
-  {"name":"Devs Indo","platform":"Discord","type":"Developer","url":"https://example.com/devs","logo":"https://dummyimage.com/64x64/222/fff&text=D"},
-  {"name":"NFT Alpha ID","platform":"Discord","type":"NFT","url":"https://example.com/nftalpha","logo":"https://dummyimage.com/64x64/222/fff&text=N"},
-  {"name":"Arb Traders","platform":"Telegram","type":"Trading","url":"https://example.com/arb","logo":"https://dummyimage.com/64x64/222/fff&text=A"},
-  {"name":"Quest Hunter","platform":"Discord","type":"Airdrop","url":"https://example.com/qh","logo":"https://dummyimage.com/64x64/222/fff&text=Q"},
-  {"name":"Degen Ville","platform":"Discord","type":"Meme Coin","url":"https://example.com/degen","logo":"https://dummyimage.com/64x64/222/fff&text=V"}
+  {"name":"KKPC","platform":"Facebook","type":"Social","url":"https://cmty.nekowawolf.xyz/","logo":"https://dummyimage.com/64x64/222/fff&text=K"},
+  {"name":"Exsaverse","platform":"Discord","type":"NFT","url":"https://cmty.nekowawolf.xyz/","logo":"https://dummyimage.com/64x64/222/fff&text=E"},
+  {"name":"Bang Pateng","platform":"Telegram","type":"Airdrop","url":"https://cmty.nekowawolf.xyz/","logo":"https://dummyimage.com/64x64/222/fff&text=B"},
+  {"name":"Cryptosiast","platform":"Telegram","type":"Airdrop","url":"https://cmty.nekowawolf.xyz/","logo":"https://dummyimage.com/64x64/222/fff&text=C"},
+  {"name":"USDTseeker","platform":"Discord","type":"Trading","url":"https://cmty.nekowawolf.xyz/","logo":"https://dummyimage.com/64x64/222/fff&text=U"},
+  {"name":"SolJobs","platform":"Discord","type":"Web3 Jobs","url":"https://cmty.nekowawolf.xyz/","logo":"https://dummyimage.com/64x64/222/fff&text=J"},
+  {"name":"MemeWaves","platform":"Telegram","type":"Meme Coin","url":"https://cmty.nekowawolf.xyz/","logo":"https://dummyimage.com/64x64/222/fff&text=M"},
+  {"name":"Devs Indo","platform":"Discord","type":"Developer","url":"https://cmty.nekowawolf.xyz/","logo":"https://dummyimage.com/64x64/222/fff&text=D"}
 ]

@@ -1,27 +1,85 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bandidoz — Web3 Playground</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header><h1>Bandidoz Site</h1></header>
-<main>
-<p>Welcome to Bandidoz.xyz — original build, not forked. 🚀</p>
-<img src="assets/profile.png" width="120" />
-</main>
-  <a href="https://www.linkedin.com/in/bandidoz-x-904720240/" target="_blank" class="linkedin">
-    <img src="assets/icons/linkedin.svg" alt="LinkedIn" width="20" height="20">
-  </a>
-  <div class="social-icons">
-    <a href="https://www.linkedin.com/in/bandidoz-x-904720240/" target="_blank" class="linkedin"><img src="assets/icons/linkedin.svg" alt="LinkedIn" width="20"></a>
-    <a href="https://x.com/maxwelxyz" target="_blank" class="twitter"><img src="assets/icons/twitter.svg" alt="Twitter" width="20"></a>
-    <a href="https://github.com/Bandidozx" target="_blank" class="github"><img src="assets/icons/github.svg" alt="GitHub" width="20"></a>
-    <a href="https://discord.com/users/maxwellxyz" target="_blank" class="discord"><img src="assets/icons/discord.svg" alt="Discord" width="20"></a>
-  </div>
-<footer>© <span id="year"></span> Bandidoz</footer>
+<div class="wrap">
+  <header class="hero">
+    <div class="hero__left">
+      <div class="badge">BANDIDOZ</div>
+      <h1>Web3 Playground</h1>
+      <p class="muted">Builder • Airdrop hunter • Crypto enjoyer</p>
+      <div class="social">
+        <a class="btn" href="https://x.com/maxwelxyz" target="_blank">X (Twitter)</a>
+        <a class="btn" href="https://github.com/Bandidozx" target="_blank">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/bandidoz-x-904720240/" target="_blank">LinkedIn</a>
+        <a class="btn" href="https://discord.com/users/maxwellxyz" target="_blank">Discord</a>
+      </div>
+    </div>
+    <div class="hero__right">
+      <img class="avatar" src="assets/profile.png" alt="profile">
+    </div>
+    <div class="hero__bg"></div>
+  </header>
+
+  <section class="grid">
+    <article class="card about">
+      <h3>About Me</h3>
+      <p>Hi, I’m <b>Bandidoz</b>. I build tools, automate on-chain flows, and experiment with testnets.</p>
+    </article>
+
+    <article class="card info">
+      <h3>Market Snapshot</h3>
+      <div id="tickers" class="ticker">
+        <div>BTC: <span id="btc">-</span></div>
+        <div>ETH: <span id="eth">-</span></div>
+        <div>SOL: <span id="sol">-</span></div>
+      </div>
+      <small class="muted">Powered by CoinGecko public API.</small>
+    </article>
+
+    <article class="card portfolio">
+      <h3>Portfolio</h3>
+      <ul>
+        <li>Open-source bots & scripts (swap, LP, deploy)</li>
+        <li>Dashboard experiments</li>
+        <li>Landing pages</li>
+      </ul>
+    </article>
+
+    <article class="card token">
+      <h3>Token Info</h3>
+      <p>Coming soon — contract, supply, and docs here.</p>
+    </article>
+
+    <article class="card airdrop">
+      <h3>Airdrop</h3>
+      <p>Kurasi airdrop & quests yang lagi dipantau.</p>
+      <p><a class="btn" href="airdrop.html">→ Buka Airdrop Board</a></p>
+    </article>
+
+    <article class="card coming">
+      <h3>Community</h3>
+      <p>Daftar komunitas crypto rekomendasi.</p>
+      <p><a class="btn" href="community.html">→ Buka Community List</a></p>
+    </article>
+  </section>
+
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/bandidoz-x-904720240/" target="_blank" class="linkedin">in</a>
+      <a href="https://x.com/maxwelxyz" target="_blank" class="twitter">X</a>
+      <a href="https://github.com/Bandidozx" target="_blank" class="github">GH</a>
+      <a href="https://discord.com/users/maxwellxyz" target="_blank" class="discord">DC</a>
+    </div>
+    <small>© <span id="y"></span> Bandidoz</small>
+  </footer>
+</div>
 <script src="script.js"></script>
 </body>
 </html>
