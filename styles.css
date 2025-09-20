@@ -151,3 +151,12 @@ h1{
 .ticker-updated{
   opacity:.55; margin-left:14px; font-size:.85rem;
 }
+
+/* ===== RAINBOW THEME (lightweight) ===== */
+:root{--rainbow1:#00e5ff;--rainbow2:#00ff95;--rainbow3:#ffe600;--rainbow4:#ff7a00;--rainbow5:#ff3d7f}
+.rainbow-text{background:linear-gradient(90deg,var(--rainbow1),var(--rainbow2),var(--rainbow3),var(--rainbow4),var(--rainbow5));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 6px rgba(0,255,200,.25))}
+.card.rainbow{border:1px solid rgba(255,255,255,.06);box-shadow:0 0 0 1px rgba(255,255,255,.02) inset,0 0 20px rgba(0,200,255,.08)}
+.grid .card:nth-child(1){--glow:#00e5ff}.grid .card:nth-child(2){--glow:#00ff95}.grid .card:nth-child(3){--glow:#ffe600}.grid .card:nth-child(4){--glow:#ff7a00}.grid .card:nth-child(5){--glow:#ff3d7f}
+.grid .card{box-shadow:0 0 0 1px rgba(255,255,255,.03) inset,0 0 18px color-mix(in srgb,var(--glow) 35%,transparent);border-radius:14px}
+.pill{background:color-mix(in srgb,var(--glow) 12%,rgba(255,255,255,.06));border:1px solid color-mix(in srgb,var(--glow) 30%,transparent)}
+.ticker-bar.rainbow{background:rgba(10,18,25,.85);border:1px solid rgba(255,255,255,.06)}
