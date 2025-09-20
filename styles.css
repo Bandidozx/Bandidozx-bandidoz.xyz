@@ -268,3 +268,18 @@ h1{
   75%  { fill: #00ff6a; filter: drop-shadow(0 0 6px #00ff6a); }
   100% { fill: #ff0080; filter: drop-shadow(0 0 6px #ff0080); }
 }
+
+/* === Header Button Small === */
+.card h3 {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.card h3 .btn-icon.small {
+  font-size:0.8rem;
+  margin-left:auto;
+  opacity:.85;
+}
+.card h3 .btn-icon.small i {
+  font-size:0.9em;
+}
