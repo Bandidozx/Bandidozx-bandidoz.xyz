@@ -247,3 +247,24 @@ h1{
 .card h3{display:flex;align-items:center;gap:.5rem}
 .card h3 .hdr-icn{display:inline-flex;width:18px;height:18px;opacity:.95;filter:drop-shadow(0 0 6px rgba(255,255,255,.15))}
 .card h3 .hdr-icn svg{width:18px;height:18px;display:block;fill:currentColor}
+/* === Header Icons Rainbow Style === */
+.hdr-icn {
+  display: inline-flex;
+  align-items: center;
+  margin-right: .35rem;
+}
+.hdr-icn svg {
+  width: 1.25em;
+  height: 1.25em;
+  animation: rainbow-shift 6s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,.7));
+}
+
+/* Animasi warna ikon header */
+@keyframes rainbow-shift {
+  0%   { fill: #ff0080; filter: drop-shadow(0 0 6px #ff0080); }
+  25%  { fill: #7928ca; filter: drop-shadow(0 0 6px #7928ca); }
+  50%  { fill: #00bfff; filter: drop-shadow(0 0 6px #00bfff); }
+  75%  { fill: #00ff6a; filter: drop-shadow(0 0 6px #00ff6a); }
+  100% { fill: #ff0080; filter: drop-shadow(0 0 6px #ff0080); }
+}
