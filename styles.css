@@ -242,3 +242,8 @@ h1{
 .card h3 .hdr-icn svg{
   width:18px; height:18px; display:block; fill:currentColor;
 }
+
+/* header svg icons */
+.card h3{display:flex;align-items:center;gap:.5rem}
+.card h3 .hdr-icn{display:inline-flex;width:18px;height:18px;opacity:.95;filter:drop-shadow(0 0 6px rgba(255,255,255,.15))}
+.card h3 .hdr-icn svg{width:18px;height:18px;display:block;fill:currentColor}
