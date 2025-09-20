@@ -151,11 +151,3 @@ setInterval(loadTicker, 60000);
   await render();
   setInterval(render, 60_000);
 })();
-
-// force btn airdrop/community href (safety)
-document.addEventListener("DOMContentLoaded", function () {
-  var a = document.getElementById("btn-airdrop");
-  if (a) { a.setAttribute("href","https://airdrop.nekowawolf.xyz/"); a.setAttribute("target","_blank"); a.setAttribute("rel","noopener"); }
-  var c = document.getElementById("btn-community");
-  if (c) { c.setAttribute("href","https://cmty.nekowawolf.xyz/"); c.setAttribute("target","_blank"); c.setAttribute("rel","noopener"); }
-});

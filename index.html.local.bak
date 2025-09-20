@@ -68,8 +68,8 @@
       gh: "$GITHUB_URL",
       in: "$LINKEDIN_URL",
       dc: "$DISCORD_URL",
-      airdrop: "https://airdrop.nekowawolf.xyz/",
-      community: "https://cmty.nekowawolf.xyz/"
+      airdrop: "$AIRDROP_URL",
+      community: "$COMMUNITY_URL"
     };
   </script>
   <script src="script.js"></script>
